@@ -9,6 +9,13 @@ from sklearn.metrics import mean_squared_error, r2_score
 import numpy as np
 import matplotlib.pyplot as plt
 import shap
+import sys
+
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8")
+
+if hasattr(sys.stderr, "reconfigure"):
+    sys.stderr.reconfigure(encoding="utf-8")
 
 
 # Load dataset
@@ -76,10 +83,10 @@ latex_inputs  = latex_limits_table(X_names, mu_X, sig_X, X_min, X_max, X_min_z, 
 latex_outputs = latex_limits_table(y_names, mu_y, sig_y, y_min, y_max, y_min_z, y_max_z, "Έξοδοι")
 
 # Εκτύπωση για copy-paste στο κείμενο
-print("\n\n=== LaTeX (Inputs) ===\n")
-print(latex_inputs)
-print("\n\n=== LaTeX (Outputs) ===\n")
-print(latex_outputs)
+#print("\n\n=== LaTeX (Inputs) ===\n")
+#print(latex_inputs)
+#print("\n\n=== LaTeX (Outputs) ===\n")
+#print(latex_outputs)
 
 # Προαιρετικά: αποθήκευση σε αρχεία .tex για \input{} στο LaTeX
 with open("limits_inputs.tex", "w", encoding="utf-8") as f:
@@ -193,7 +200,7 @@ for output_index in range(8):
                  .replace("|", "_")
                  .replace(" ", "_"))                       # ασφαλές για όνομα αρχείου
 
-    print(f"\n➡ Υπολογισμός SHAP για έξοδο {out_name}")
+    print(f"\n Υπολογισμός SHAP για έξοδο {out_name}")
 
     # Προβλεπτική συνάρτηση για συγκεκριμένη έξοδο
     def predict_output_i(x_numpy, idx=output_index):
@@ -213,10 +220,10 @@ for output_index in range(8):
         print(f"❌ Παράλειψη {out_name} λόγω λάθους shape: {values.shape}")
         continue
     if np.isnan(values).any():
-        print(f"❌ Παράλειψη {out_name} λόγω NaN")
+        print(f" Παράλειψη {out_name} λόγω NaN")
         continue
 
-    print(f"✅ SHAP Summary Plot για {out_name}")
+    print(f" SHAP Summary Plot για {out_name}")
     plt.figure()
     shap.summary_plot(values, test_samples, feature_names=feature_names, show=False)
     plt.title(f"SHAP Summary for {out_name}", fontsize=14)
@@ -257,4 +264,3 @@ plt.show()
 X_sample = torch.tensor([[16.0, 7.0, 0.6, 6.0, 33.0]], dtype=torch.float32)
 predictions = model(X_sample)
 print("Predicted Performance Metrics:", predictions.detach().numpy())
-
