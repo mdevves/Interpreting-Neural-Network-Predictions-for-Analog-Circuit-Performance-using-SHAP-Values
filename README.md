@@ -1,10 +1,10 @@
-# 🚀 Analog Circuit Performance Prediction & Explainable AI (XAI) using PyTorch & SHAP
+#  Analog Circuit Performance Prediction & Explainable AI (XAI) using PyTorch & SHAP
 
 An end-to-end Machine Learning pipeline developed in Python and PyTorch to predict key performance metrics of CMOS Operational Amplifiers (Op-Amps) directly from design parameters. The project incorporates **Explainable AI (XAI)** via **SHAP (SHapley Additive exPlanations)** to gain physical and qualitative insights into circuit behavior, significantly accelerating the design iteration process over traditional SPICE simulations.
 
 ---
 
-## 📌 Project Overview
+##  Project Overview
 
 Designing analog integrated circuits typically requires time-consuming iteratively executed SPICE simulations. This repository presents a data-driven surrogate modeling approach using Deep Neural Networks (DNNs) to map structural transistor sizing parameters to circuit-level performance outputs.
 
@@ -19,7 +19,7 @@ Key highlights:
 
 The model maps **5 Design Input Parameters** to **8 Circuit Output Metrics**:
 
-### 📥 Inputs (Sizing Parameters)
+###  Inputs (Sizing Parameters)
 | Parameter | Description |
 | :--- | :--- |
 | `Cc` | Compensation Capacitance |
@@ -28,7 +28,7 @@ The model maps **5 Design Input Parameters** to **8 Circuit Output Metrics**:
 | `Wnb` | Transistor Width (NMOS Bias) |
 | `Wpo` | Transistor Width (PMOS Output) |
 
-### 📤 Outputs (Performance Metrics)
+###  Outputs (Performance Metrics)
 | Metric | Description | Unit |
 | :--- | :--- | :--- |
 | `Phase Margin` | Stability Margin | Deg (°) |
@@ -42,4 +42,4 @@ The model maps **5 Design Input Parameters** to **8 Circuit Output Metrics**:
 
 ---
 
-## 🏗 System Architecture & Pipeline
+##  System Architecture & Pipeline
