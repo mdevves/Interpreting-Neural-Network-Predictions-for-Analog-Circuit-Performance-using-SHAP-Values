@@ -15,7 +15,7 @@ Key highlights:
 
 ---
 
-## 📐 Circuit Parameters & Target Metrics
+##  Circuit Parameters & Target Metrics
 
 The model maps **5 Design Input Parameters** to **8 Circuit Output Metrics**:
 
